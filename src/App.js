@@ -1,28 +1,73 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, Fragment } from "react";
+
+import ToDoList from "./components/ToDoList";
+import Homepage from "./components/Homepage";
+import About from "./pages/About";
+
+import requireAuth from "./components/auth/requireAuth";
+
+import { BrowserRouter, Route } from "react-router-dom";
+import { connect } from "react-redux";
+import * as actions from "./actions";
+
+import './css/styles.css';
 
 class App extends Component {
+  componentWillMount() {
+    this.props.fetchUser();
+  }
+
   render() {
+    console.log(this.props.auth)
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <BrowserRouter>
+        <Fragment>
+          <nav>
+            <div className="nav-wrapper">
+              <a href="/" className="brand-logo">Idea Bank</a>
+              <ul id="nav-mobile" className="right hide-on-med-and-down">
+                <li><a href="/about">About</a></li>
+                {this.props.auth ? (
+                  <li>Welcome back {this.props.auth.displayName}
+                    <button
+                      onClick={this.props.signOut}
+                      id="sign-out-button"
+                      className="btn-small"
+                    >
+                      Log out
+                    </button>
+
+                            </li>) : (
+                              <li>
+
+                                <button
+                                  onClick={this.props.signIn}
+                                  className="btn-small"
+                                >
+                                  Sign In
+                    </button>
+                    </li>)}
+
+              </ul>
+            </div>
+          </nav>
+
+          {/* <Route path="/app" component={requireAuth(ToDoList)} /> */}
+          <Route exact path="/" component={Homepage} />
+          <Route path="/about" component={About} />
+        </Fragment>
+
+
+      </BrowserRouter>
     );
   }
 }
 
-export default App;
+const mapStateToProps = ({ data, auth }) => {
+  return {
+    data,
+    auth
+  };
+};
+
+export default connect(mapStateToProps, actions)(App);

@@ -1,0 +1,45 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "author": "Adrian",
+      "comment": "Lorem ipsum dolor"
+    },
+    {
+      "id": 2,
+      "author": "Barry",
+      "comment": "Lorem ipsum dolor"
+    },
+    {
+      "id": 3,
+      "author": "Cynthia",
+      "comment": "Lorem ipsum dolor"
+    }
+  ],
+  "ideas":[
+    {
+      "id": 1,
+      "author": "Adrian",
+      "title": "Lorem ipsum dolor",
+      "description": "Lorem ipsum dolor"
+    },
+    {
+      "id": 2,
+      "author": "Adrian",
+      "title": "Lorem ipsum dolor",
+      "description": "Lorem ipsum dolor"
+    },
+    {
+      "id": 3,
+      "author": "Adrian",
+      "title": "Lorem ipsum dolor",
+      "description": "Lorem ipsum dolor"
+    },
+    {
+      "id": 4,
+      "author": "Adrian",
+      "title": "Lorem ipsum dolor",
+      "description": "Lorem ipsum dolor"
+    }
+  ]
+}
