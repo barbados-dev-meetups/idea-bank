@@ -4,9 +4,12 @@
   "private": true,
   "dependencies": {
     "firebase": "^7",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8",
     "lodash": "^4.17.5",
     "mapbox-gl": "^0.49.0",
     "materialize-css": "^1.0.0-beta",
+    "prettier": "^1.19.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-redux": "^5.0.7",
@@ -16,6 +19,11 @@
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"
   },
+  "lint-staged": {
+    "src/**/*.{js,jsx,json,css,scss,md}": [
+      "prettier --write"
+    ]
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -24,6 +32,11 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "browserslist": [
     ">0.2%",
