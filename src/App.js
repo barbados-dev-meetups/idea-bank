@@ -10,7 +10,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "./actions";
 
-import './css/styles.css';
+import "./css/styles.css";
 
 class App extends Component {
   componentWillMount() {
@@ -18,17 +18,22 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props.auth)
+    console.log(this.props.auth);
     return (
       <BrowserRouter>
         <Fragment>
           <nav>
             <div className="nav-wrapper">
-              <a href="/" className="brand-logo">Idea Bank</a>
+              <a href="/" className="brand-logo">
+                Idea Bank
+              </a>
               <ul id="nav-mobile" className="right hide-on-med-and-down">
-                <li><a href="/about">About</a></li>
+                <li>
+                  <a href="/about">About</a>
+                </li>
                 {this.props.auth ? (
-                  <li>Welcome back {this.props.auth.displayName}
+                  <li>
+                    Welcome back {this.props.auth.displayName}
                     <button
                       onClick={this.props.signOut}
                       id="sign-out-button"
@@ -36,18 +41,14 @@ class App extends Component {
                     >
                       Log out
                     </button>
-
-                            </li>) : (
-                              <li>
-
-                                <button
-                                  onClick={this.props.signIn}
-                                  className="btn-small"
-                                >
-                                  Sign In
+                  </li>
+                ) : (
+                  <li>
+                    <button onClick={this.props.signIn} className="btn-small">
+                      Sign In
                     </button>
-                    </li>)}
-
+                  </li>
+                )}
               </ul>
             </div>
           </nav>
@@ -56,8 +57,6 @@ class App extends Component {
           <Route exact path="/" component={Homepage} />
           <Route path="/about" component={About} />
         </Fragment>
-
-
       </BrowserRouter>
     );
   }

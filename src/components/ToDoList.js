@@ -11,15 +11,15 @@ import mapboxgl from "mapbox-gl";
 mapboxgl.accessToken =
   "pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA";
 
-
 class ToDoList extends Component {
-
-
   constructor(props: Props) {
     super(props);
     //TODO: Use user's location
     this.state = {
-      lat: 13.1734433, lng: -59.6276261, zoom: 12, addFormVisible: false,
+      lat: 13.1734433,
+      lng: -59.6276261,
+      zoom: 12,
+      addFormVisible: false,
       addFormValue: ""
     };
   }
@@ -89,12 +89,12 @@ class ToDoList extends Component {
 
     const map = new mapboxgl.Map({
       container: this.mapContainer,
-      style: 'mapbox://styles/mapbox/streets-v9',
+      style: "mapbox://styles/mapbox/streets-v9",
       center: [lng, lat],
       zoom
     });
 
-    map.on('move', () => {
+    map.on("move", () => {
       const { lng, lat } = map.getCenter();
 
       this.setState({
@@ -104,7 +104,6 @@ class ToDoList extends Component {
       });
     });
   }
-
 
   render() {
     const { lng, lat, zoom, addFormVisible } = this.state;
@@ -119,7 +118,11 @@ class ToDoList extends Component {
     }
     return (
       <div className="to-do-list-container">
-        <div ref={el => this.mapContainer = el} className="absolute top right left bottom" style={{ height: '500px', width: '100%' }} />
+        <div
+          ref={el => (this.mapContainer = el)}
+          className="absolute top right left bottom"
+          style={{ height: "500px", width: "100%" }}
+        />
         <div className="row">
           <div className="col s3">
             <h2>Activity List</h2>
@@ -132,7 +135,6 @@ class ToDoList extends Component {
           <div className="col s9">
             {this.renderAddForm()}
             {this.renderToDos()}
-
           </div>
         </div>
 
@@ -151,8 +153,8 @@ class ToDoList extends Component {
             {addFormVisible ? (
               <i className="large material-icons">close</i>
             ) : (
-                <i className="large material-icons">add</i>
-              )}
+              <i className="large material-icons">add</i>
+            )}
           </button>
         </div>
       </div>
