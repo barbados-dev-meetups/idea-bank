@@ -42,3 +42,16 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Contributing 
+
+### Issues
+You can contribute to this project by creating an issue on github and by assisting with triaging issues as they come in. Feature requests should be migrated over to the [Trello Board](https://trello.com/b/SKZSFOac/barcode-ideajob-dev-bank)
+
+### Development
+You can contribute code by sending a pull request to the develop branch of this project. It should be rebased with develop as recently at the time of submission.
+
+You can chose to work on an issue or a feature from the [Trello Board](https://trello.com/b/SKZSFOac/barcode-ideajob-dev-bank)
+
+### Design
+TBD
